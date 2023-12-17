@@ -579,3 +579,44 @@ select {
     font-style : italic;
     font-family: fantasy;
 }
+
+.forum-item {
+    display: flex;
+    padding: 10px 40px;
+    gap    : 20px;
+}
+
+.forum-item img {
+    height       : 70px;
+    border-radius: 3px;
+    border-radius: 4px;
+}
+
+.forum-item+.forum-item {
+    margin-top: 20px;
+}
+
+.forum-item h1 {
+    padding  : 0;
+    margin   : 0;
+    font-size: 20px;
+}
+
+.forum-item p.view-more {
+    display           : -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow          : hidden;
+    font-size         : 14px;
+}
+
+.forum-item p.view-less {
+    white-space: pre-wrap;
+    text-align : justify;
+}
+
+.forum-item button {
+    padding   : 6px 10px;
+    margin-top: 10px;
+    cursor    : pointer;
+}

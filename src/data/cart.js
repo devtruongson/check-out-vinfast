@@ -59,7 +59,7 @@ export const dataCar = [
     },
     {
         slug: "vfe34",
-        title: "VF 6 BASE",
+        title: "Vinfast Vfe 34",
         img: "/image/vf-e34.webp",
         size: "4.238 x 1.820 x 1.594",
         power: "59,6 kW",
@@ -81,7 +81,7 @@ export const dataCar = [
     },
     {
         slug: "vf8",
-        title: "VF 6 BASE",
+        title: "Vinfast VF 8",
         size: "4.238 x 1.820 x 1.594",
         img: "/image/vf-8.webp",
         power: "59,6 kW",

@@ -268,6 +268,7 @@ function CartSideItem({ slug, isOpen, price, seat, over }) {
                 >
                     {car.image.map((item, indexCurrent) => (
                         <img
+                            key={indexCurrent}
                             style={{
                                 width: 30,
                                 height: 30,

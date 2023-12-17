@@ -1,4 +1,5 @@
 import React from "react";
+import { dataCar } from "./data/cart";
 
 const Modal = ({ isOpen, toggle }) => {
     return (
@@ -11,7 +12,9 @@ const Modal = ({ isOpen, toggle }) => {
                         <input placeholder="Phonenumber (*)" required />
                         <input placeholder="Address" required />
                         <select>
-                            <option>Vinfast VF 3</option>
+                            {dataCar.map((item, index) => (
+                                <option key={index}>{item.title}</option>
+                            ))}
                         </select>
                     </div>
                     <div

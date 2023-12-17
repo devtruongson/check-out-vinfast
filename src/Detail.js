@@ -56,8 +56,8 @@ const Detail = () => {
             className="wp-detail"
         >
             <Slider {...settings}>
-                {dataImage.image.map((item) => (
-                    <div>
+                {dataImage.image.map((item, index) => (
+                    <div key={index}>
                         <img
                             style={{
                                 width: "100%",
