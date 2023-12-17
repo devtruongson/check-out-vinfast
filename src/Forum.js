@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { forumData } from "./data/forum";
+import Comment from "./Comment";
 
 function Forum() {
     return (
@@ -11,6 +12,7 @@ function Forum() {
             {forumData.map((item, index) => (
                 <FormItem key={index} item={item} />
             ))}
+            <Comment link={"https://check-out-vinfast.vercel.app/Forum"} />
         </div>
     );
 }
