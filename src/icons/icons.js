@@ -171,3 +171,6 @@ export const Vf9Icon = () => (
         </defs>
     </svg>
 );
+
+export const LuxA20Icon = () => <span className="icon-text">LUX2.0</span>;
+export const LuxSA20Icon = () => <span className="icon-text">LUXSA 2.0</span>;

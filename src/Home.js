@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Home({ toggle }) {
     return (
         <div>
             <div className="background">
@@ -10,10 +10,17 @@ function Home() {
             </div>
             <div className="logo2">
                 <h1>
-                    <img src="/image/icon_tuvan 1.jpg" className="logotuvan" />
                     <img
+                        onClick={() => toggle(true)}
+                        alt=""
+                        src="/image/icon_tuvan 1.jpg"
+                        className="logotuvan"
+                    />
+                    <img
+                        onClick={() => toggle(true)}
                         src="/image/icon_dangky 1.jpg"
                         className="logodangky"
+                        alt=""
                     />
                 </h1>
             </div>

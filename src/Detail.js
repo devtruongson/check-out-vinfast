@@ -1,26 +1,81 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { dataCar } from "./data/cart";
+import { dataCartImage } from "./data/image";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 const Detail = () => {
     const params = useParams();
 
-    const product = dataCar.find((item) => item.slug == params.slug);
-    if (!product) {
+    const product = dataCar.find((item) => item.slug === params.slug);
+    const dataImage = dataCartImage.find((item) => item.slug === params.slug);
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, [product]);
+
+    if (!product || !dataImage) {
         return <div>Our Car Has Not Been Launched Yet</div>;
     }
 
+    const settings = {
+        customPaging: function (i) {
+            return (
+                // eslint-disable-next-line jsx-a11y/anchor-is-valid
+                <a>
+                    <img
+                        style={{
+                            width: 40,
+                            height: 40,
+                            objectFit: "contain",
+                        }}
+                        src={dataImage.image[i]}
+                        alt=""
+                    />
+                </a>
+            );
+        },
+        dots: true,
+        infinite: true,
+        speed: 1500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        // autoplay: true,
+    };
+
     return (
-        <div>
-            <img
+        <div
+            style={{
+                overflow: "hidden",
+                padding: "40px 0",
+            }}
+            className="wp-detail"
+        >
+            <Slider {...settings}>
+                {dataImage.image.map((item) => (
+                    <div>
+                        <img
+                            style={{
+                                width: "100%",
+                                objectFit: "contain",
+                                height: 400,
+                            }}
+                            src={item}
+                            alt="Hình Ảnh Xe Ô Tô"
+                        />
+                    </div>
+                ))}
+            </Slider>
+            <div
+                className="detail-wp"
                 style={{
-                    width: "100%",
-                    objectFit: "cover",
+                    marginTop: 30,
                 }}
-                src={product.img}
-                alt="Hình Ảnh Xe Ô Tô"
-            />
-            <div className="detail-wp">
+            >
                 <h1>{product.title}</h1>
                 <p>
                     Price from <strong>{product.price}</strong>

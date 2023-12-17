@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Vf5Icon, Vf6Icon, Vf8Icon, Vf9Icon, Vfe34Icon } from "./icons/icons";
+import {
+    LuxA20Icon,
+    LuxSA20Icon,
+    Vf5Icon,
+    Vf6Icon,
+    Vf8Icon,
+    Vf9Icon,
+    Vfe34Icon,
+} from "./icons/icons";
 import { Link } from "react-router-dom";
+import { dataCartImage } from "./data/image";
 
 const CarComing = () => {
     const adviceList = [
@@ -151,6 +160,8 @@ export function CarComingSideIntro({ isOpen = false }) {
         <Vfe34Icon />,
         <Vf8Icon />,
         <Vf9Icon />,
+        <LuxA20Icon />,
+        <LuxSA20Icon />,
     ];
 
     const settings = {
@@ -177,161 +188,55 @@ export function CarComingSideIntro({ isOpen = false }) {
             className="side-introduce-car"
         >
             <Slider {...settings}>
-                <div>
-                    <div className="side-item">
-                        <img
-                            src="/image/vf-5.webp"
-                            alt="Hình ảnh coming soon"
-                        />
-                    </div>
-                    <div className="info">
-                        <div>
-                            <p>Vehicles</p>
-                            <p>SUV</p>
-                        </div>
-                        <div>
-                            <p>Number of seats</p>
-                            <p>5 seats</p>
-                        </div>
-                        <div>
-                            <p>Distance</p>
-                            <p>Over 300 km</p>
-                        </div>
-                        <div>
-                            <p>Price from</p>
-                            <p>458.000.000 VNĐ</p>
-                        </div>
-                    </div>
-                    {isOpen && (
-                        <div className="view-detail-btn">
-                            <Link to="/detail/vf5">View Detail</Link>
-                        </div>
-                    )}
-                </div>
-                <div>
-                    <div className="side-item">
-                        <img
-                            src="/image/vf-6.webp"
-                            alt="Hình ảnh coming soon"
-                        />
-                    </div>
-                    <div className="info">
-                        <div>
-                            <p>Vehicles</p>
-                            <p>SUV</p>
-                        </div>
-                        <div>
-                            <p>Number of seats</p>
-                            <p>5 seats</p>
-                        </div>
-                        <div>
-                            <p>Distance</p>
-                            <p>Over 399 km</p>
-                        </div>
-                        <div>
-                            <p>Price from</p>
-                            <p>675.000.000 VNĐ</p>
-                        </div>
-                    </div>
-                    {isOpen && (
-                        <div className="view-detail-btn">
-                            <Link to="/detail/vf6">View Detail</Link>
-                        </div>
-                    )}
-                </div>
-                <div>
-                    <div className="side-item">
-                        <img
-                            src="/image/vf-e34.webp"
-                            alt="Hình ảnh coming soon"
-                        />
-                    </div>
-                    <div className="info">
-                        <div>
-                            <p>Vehicles</p>
-                            <p>SUV</p>
-                        </div>
-                        <div>
-                            <p>Number of seats</p>
-                            <p>5 seats</p>
-                        </div>
-                        <div>
-                            <p>Distance</p>
-                            <p>Over 318.6 km</p>
-                        </div>
-                        <div>
-                            <p>Price from</p>
-                            <p>710.000.000 VNĐ</p>
-                        </div>
-                    </div>
-                    {isOpen && (
-                        <div className="view-detail-btn">
-                            <Link to="/detail/vfe34">View Detail</Link>
-                        </div>
-                    )}
-                </div>
-                <div>
-                    <div className="side-item">
-                        <img
-                            src="/image/vf-8.webp"
-                            alt="Hình ảnh coming soon"
-                        />
-                    </div>
-                    <div className="info">
-                        <div>
-                            <p>Vehicles</p>
-                            <p>SUV</p>
-                        </div>
-                        <div>
-                            <p>Number of seats</p>
-                            <p>5 seats</p>
-                        </div>
-                        <div>
-                            <p>Distance</p>
-                            <p>Over 400 km</p>
-                        </div>
-                        <div>
-                            <p>Price from</p>
-                            <p>1.090.000.000 VNĐ</p>
-                        </div>
-                    </div>
-                    {isOpen && (
-                        <div className="view-detail-btn">
-                            <Link to="/detail/vf8">View Detail</Link>
-                        </div>
-                    )}
-                </div>
-                <div>
-                    <div className="side-item">
-                        <img
-                            src="/image/vf-9.webp"
-                            alt="Hình ảnh coming soon"
-                        />
-                    </div>
-                    <div className="info">
-                        <div>
-                            <p>Vehicles</p>
-                            <p>SUV</p>
-                        </div>
-                        <div>
-                            <p>Number of seats</p>
-                            <p>6 - 7 seats</p>
-                        </div>
-                        <div>
-                            <p>Distance</p>
-                            <p>Over 423 km</p>
-                        </div>
-                        <div>
-                            <p>Price from</p>
-                            <p>1.491.000.000 VNĐ</p>
-                        </div>
-                    </div>
-                    {isOpen && (
-                        <div className="view-detail-btn">
-                            <Link to="/detail/vf9">View Detail</Link>
-                        </div>
-                    )}
-                </div>
+                <CartSideItem
+                    slug="vf5"
+                    isOpen={isOpen}
+                    over={300}
+                    seat={5}
+                    price="458.000.000 VNĐ"
+                />
+                <CartSideItem
+                    slug="vf6"
+                    isOpen={isOpen}
+                    over={399}
+                    seat={5}
+                    price="675.000.000 VNĐ"
+                />
+                <CartSideItem
+                    slug="vfe34"
+                    isOpen={isOpen}
+                    over={318.6}
+                    seat={5}
+                    price="710.000.000 VNĐ"
+                />
+                <CartSideItem
+                    slug="vf8"
+                    isOpen={isOpen}
+                    over={400}
+                    seat={5}
+                    price="1.090.000.000 VNĐ"
+                />
+                <CartSideItem
+                    slug="vf9"
+                    isOpen={isOpen}
+                    over={423}
+                    seat={"5 - 7"}
+                    price="1.491.000.000 VNĐ"
+                />
+                <CartSideItem
+                    slug="luxa2.0"
+                    isOpen={isOpen}
+                    over={370}
+                    seat={5}
+                    price="675.000.000 VNĐ"
+                />
+                <CartSideItem
+                    slug="luxsa2.0"
+                    isOpen={isOpen}
+                    over={370}
+                    seat={"5 - 7"}
+                    price="800.000.000 VNĐ"
+                />
             </Slider>
         </div>
     );
@@ -345,3 +250,65 @@ const AdviceCard = ({ title, content }) => (
         </div>
     </div>
 );
+
+function CartSideItem({ slug, isOpen, price, seat, over }) {
+    const car = dataCartImage.find((item) => item.slug === slug);
+    const [index, setIndex] = useState(0);
+
+    return (
+        <div>
+            <div className="side-item">
+                <img src={car.image[index]} alt="Hình ảnh coming soon" />
+                <div
+                    className="list-change-image"
+                    style={{
+                        maxHeight: 439,
+                        overflow: "auto",
+                    }}
+                >
+                    {car.image.map((item, indexCurrent) => (
+                        <img
+                            style={{
+                                width: 30,
+                                height: 30,
+                                cursor: "pointer",
+                                border: "1px solid #ccc",
+                                padding: 4,
+                                borderRadius: 3,
+                                borderColor:
+                                    indexCurrent === index ? "red" : "#ccc",
+                                objectFit: "contain",
+                            }}
+                            src={item}
+                            alt=""
+                            onClick={() => setIndex(indexCurrent)}
+                        />
+                    ))}
+                </div>
+            </div>
+            <div className="info">
+                <div>
+                    <p>Vehicles</p>
+                    <p>SUV</p>
+                </div>
+                <div>
+                    <p>Number of seats</p>
+                    <p>{seat} seats</p>
+                </div>
+                <div>
+                    <p>Distance</p>
+                    <p>Over {over} km</p>
+                </div>
+                <div>
+                    <p>Price from</p>
+                    <p>{price}</p>
+                </div>
+            </div>
+            {isOpen && (
+                <div className="view-detail-btn">
+                    <Link to={`/detail/${car.slug}`}>View Detail</Link>
+                </div>
+            )}
+        </div>
+    );
+}

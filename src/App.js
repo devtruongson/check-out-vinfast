@@ -10,7 +10,11 @@ import { Search } from "react-bootstrap-icons";
 import CarComing from "./CarComing";
 import Detail from "./Detail";
 import LoginAndRegister from "./LoginAndRegister";
+import Modal from "./Modal";
+import { useState } from "react";
 function App() {
+    const [isOpenModal, setIsOpenModal] = useState(false);
+
     return (
         <div className="App">
             <nav className="nav-list">
@@ -56,7 +60,7 @@ function App() {
                 </Link>
             </nav>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home toggle={setIsOpenModal} />} />
                 <Route path="/Contact" element={<Contact />} />
                 <Route path="/Forum" element={<Forum />} />
                 <Route path="/Introduce" element={<Introduce />} />
@@ -74,6 +78,7 @@ function App() {
                 <h2>GMAIL : NVC123@gmail.com</h2>
                 <h2>ADDRESS : Tang 1 Vincom số 1 đường 30/4 </h2>
             </div>
+            <Modal isOpen={isOpenModal} toggle={setIsOpenModal} />
         </div>
     );
 }
