@@ -1,15 +1,25 @@
 import React from "react";
 import "./App.css";
 import { Link } from "react-router-dom";
+import { dataCar } from "./data/cart";
+import { useNavigate } from "react-router-dom";
 
 function Home({ toggle }) {
+    const navigate = useNavigate();
+
     return (
         <div>
             <div className="background">
-                <img src="/image/banner_vf_9 1.jpg" />
+                <img src="/image/banner_vf_9 1.jpg" alt="" />
             </div>
             <div className="logo2">
-                <h1>
+                <h1
+                    style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        padding: "0 400px",
+                    }}
+                >
                     <img
                         onClick={() => toggle(true)}
                         alt=""
@@ -26,24 +36,38 @@ function Home({ toggle }) {
             </div>
             <h1 className="products">Products</h1>
             <div className="image-container">
-                <table>
-                    <tr className="hinh">
-                        <td>
-                            <img src="image/hinh5.jpg" />
-                        </td>
-                        <td>
-                            <img src="image/hinh6.jpg" />
-                        </td>
-                        <td>
-                            <img src="image/hinh7.jpg" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>xe 2</td>
-                        <td>xe 3</td>
-                        <td>xe 4</td>
-                    </tr>
-                </table>
+                <div
+                    style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        padding: "10px 20px",
+                        gap: 8,
+                    }}
+                >
+                    {dataCar.map((item, index) => (
+                        <div
+                            className="forum-item"
+                            style={{
+                                width: "24%",
+                                marginBottom: 20,
+                            }}
+                            key={index}
+                        >
+                            <img src={item.img} alt={item.title} />
+                            <div>
+                                <h1 className="forum-title">{item.title}</h1>
+                                <p className="view-more">{item.decs}</p>
+                                <button
+                                    onClick={() =>
+                                        navigate(`/detail/${item.slug}`)
+                                    }
+                                >
+                                    {"view more"}
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
             <div className="Login">
                 <div

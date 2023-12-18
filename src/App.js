@@ -12,28 +12,33 @@ import Detail from "./Detail";
 import LoginAndRegister from "./LoginAndRegister";
 import Modal from "./Modal";
 import { useState } from "react";
+import ForumDetail from "./ForumDetail";
+import { useNavigate } from "react-router-dom";
+import SearchPage from "./Search";
+
 function App() {
     const [isOpenModal, setIsOpenModal] = useState(false);
+    const [textSearch, setTextSearch] = useState("");
+    const navigate = useNavigate();
+
+    const handleRedirectSearch = () => {
+        if (!textSearch) {
+            alert("Please enter a search term");
+            return;
+        }
+        navigate(`/search/${textSearch}`);
+    };
 
     return (
         <div className="App">
             <nav className="nav-list">
-                <img
-                    src="/image/logo.jpg"
-                    className="logotren"
-                    alt="Hình ảnh logo website"
-                />
-                <Link to="/" className="linkk">
-                    Home page
+                <Link to="/">
+                    <img
+                        src="/image/logo.jpg"
+                        className="logotren"
+                        alt="Hình ảnh logo website"
+                    />
                 </Link>
-                &nbsp;
-                <i className="linkk">
-                    {" "}
-                    <input type="text"></input>
-                    <button type="button">
-                        <Search />
-                    </button>
-                </i>
                 &nbsp;
                 <Link to="/Contact" className="linkk">
                     Contact
@@ -58,6 +63,22 @@ function App() {
                 <Link to="/coming-soon" className="linkk">
                     Car coming
                 </Link>
+                <div className="search-nav">
+                    <input
+                        onKeyDown={(e) => {
+                            if (e.keyCode === 13) {
+                                handleRedirectSearch();
+                            }
+                        }}
+                        value={textSearch}
+                        onChange={(e) => setTextSearch(e.target.value)}
+                        type="text"
+                        placeholder="Enter your name car"
+                    ></input>
+                    <button type="button" onClick={handleRedirectSearch}>
+                        <Search />
+                    </button>
+                </div>
             </nav>
             <Routes>
                 <Route path="/" element={<Home toggle={setIsOpenModal} />} />
@@ -67,6 +88,8 @@ function App() {
                 <Route path="/Pricelist" element={<Pricelist />} />
                 <Route path="/Product" element={<Product />} />
                 <Route path="/detail/:slug" element={<Detail />} />
+                <Route path="/forum/:slug" element={<ForumDetail />} />
+                <Route path="/search/:keyword" element={<SearchPage />} />
                 <Route
                     path="/login-and-register/:method"
                     element={<LoginAndRegister />}

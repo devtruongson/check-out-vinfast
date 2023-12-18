@@ -1,18 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import { forumData } from "./data/forum";
-import Comment from "./Comment";
+import { useNavigate } from "react-router-dom";
 
 function Forum() {
     return (
         <div
             style={{
-                padding: "30px 0",
+                paddingBottom: 40,
             }}
         >
-            {forumData.map((item, index) => (
-                <FormItem key={index} item={item} />
-            ))}
-            <Comment link={"https://check-out-vinfast.vercel.app/Forum"} />
+            <h2
+                style={{
+                    textAlign: "center",
+                    paddingTop: 20,
+                }}
+            >
+                ForumCommunity Vinfast VietNam
+            </h2>
+            <div
+                style={{
+                    padding: "10px 20px",
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "space-between",
+                }}
+            >
+                {forumData.map((item, index) => (
+                    <FormItem key={index} item={item} />
+                ))}
+            </div>
         </div>
     );
 }
@@ -20,18 +36,21 @@ function Forum() {
 export default Forum;
 
 function FormItem({ item }) {
-    const [isViewMore, setIsViewMore] = useState(false);
+    const navigate = useNavigate();
 
     return (
-        <div className="forum-item">
+        <div
+            className="forum-item"
+            style={{
+                width: "24%",
+            }}
+        >
             <img src={item.img} alt={item.title} />
             <div>
-                <h1>{item.title}</h1>
-                <p className={isViewMore ? "view-less" : "view-more"}>
-                    {item.content}
-                </p>
-                <button onClick={() => setIsViewMore(!isViewMore)}>
-                    {isViewMore ? "View less" : "view more"}
+                <h1 className="forum-title">{item.title}</h1>
+                <p className="view-more">{item.content}</p>
+                <button onClick={() => navigate(`/forum/${item.slug}`)}>
+                    {"view more"}
                 </button>
             </div>
         </div>
