@@ -35,7 +35,7 @@ const SearchPage = () => {
                     <strong>{params.keyword}</strong>
                 </h1>
             </div>
-            {carSearch ? (
+            {carSearch && carSearch.length ? (
                 <div
                     style={{
                         display: "flex",
