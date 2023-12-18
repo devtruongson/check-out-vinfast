@@ -151,7 +151,7 @@ export const dataCar = [
     },
     {
         slug: "luxa2.0",
-        img: "/image/vf-9.webp",
+        img: "https://otovinfast-quangngai.vn/wp-content/uploads/2022/11/vinfast-lux-a20-mau-trang-1.png",
         title: "Vinfast LuxA 2.0",
         size: "4973 x 1900 x 1500 (mm)",
         power: "70 (L)",
@@ -182,8 +182,8 @@ export const dataCar = [
     },
     {
         slug: "luxsa2.0",
-        img: "/image/vf-9.webp",
-        title: "VF9 Vinfast electric car",
+        img: "https://shop.vinfastauto.com/on/demandware.static/-/Sites-app_vinfast_vn-Library/default/dw5c1adf16/images/Lux-SA/hinh-anh-gia-VinFast-Lux-SA2.0-ban-tieu-chuan-base-tra-gop-mau-do-red.png",
+        title: "Vinfast LuxSa 2.0",
         size: "4.238 x 1.820 x 1.594",
         power: "70 (L)",
         laZang: "17 inch",
