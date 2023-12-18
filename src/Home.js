@@ -17,21 +17,43 @@ function Home({ toggle }) {
                     style={{
                         display: "flex",
                         justifyContent: "space-between",
-                        padding: "0 400px",
+                        padding: "0 300px",
                     }}
                 >
-                    <img
-                        onClick={() => toggle(true)}
-                        alt=""
-                        src="/image/icon_tuvan 1.jpg"
-                        className="logotuvan"
-                    />
-                    <img
-                        onClick={() => toggle(true)}
-                        src="/image/icon_dangky 1.jpg"
-                        className="logodangky"
-                        alt=""
-                    />
+                    <div>
+                        <img
+                            onClick={() => toggle(true)}
+                            alt=""
+                            src="/image/icon_tuvan 1.jpg"
+                            className="logotuvan"
+                        />
+                        <p
+                            style={{
+                                color: "#333",
+                                fontSize: 12,
+                                whiteSpace: "nowrap",
+                            }}
+                        >
+                            car selection advice
+                        </p>
+                    </div>
+                    <div>
+                        <img
+                            onClick={() => toggle(true)}
+                            src="/image/icon_dangky 1.jpg"
+                            className="logodangky"
+                            alt=""
+                        />
+                        <p
+                            style={{
+                                color: "#333",
+                                fontSize: 12,
+                                whiteSpace: "nowrap",
+                            }}
+                        >
+                            Sign up to receive a quote
+                        </p>
+                    </div>
                 </h1>
             </div>
             <h1 className="products">Products</h1>
@@ -53,7 +75,13 @@ function Home({ toggle }) {
                             }}
                             key={index}
                         >
-                            <img src={item.img} alt={item.title} />
+                            <img
+                                style={{
+                                    objectFit: "contain",
+                                }}
+                                src={item.img}
+                                alt={item.title}
+                            />
                             <div>
                                 <h1 className="forum-title">{item.title}</h1>
                                 <p className="view-more">{item.decs}</p>

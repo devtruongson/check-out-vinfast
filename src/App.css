@@ -55,6 +55,16 @@ html {
     justify-content: center;
 }
 
+@media(max-width: 1300px) {
+    .linkk {
+        font-size: 12px;
+    }
+
+    .search-nav input {
+        font-size: 12px;
+    }
+}
+
 .search-nav {
     height          : 30px;
     background-color: #fff;
@@ -328,9 +338,10 @@ input {
 
 .side-introduce-car .side-item img {
     width     : 60%;
-    height    : 439px;
-    object-fit: cover;
+    height    : 400px;
+    object-fit: contain;
 }
+
 
 
 .side-introduce-car .slick-dots {
