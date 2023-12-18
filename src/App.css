@@ -21,7 +21,16 @@ html {
 }
 
 .logotren {
-    width: 150px;
+    width     : 150px;
+    object-fit: cover;
+    transform : scale(1.3);
+    filter    : brightness(130%);
+}
+
+.logo-home {
+    position  : relative;
+    overflow  : hidden;
+    box-shadow: 0 200px 100px rgba(0, 0, 0, 0.2);
 }
 
 .App .logo {

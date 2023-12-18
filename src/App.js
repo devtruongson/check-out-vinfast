@@ -32,7 +32,7 @@ function App() {
     return (
         <div className="App">
             <nav className="nav-list">
-                <Link to="/">
+                <Link to="/" className="logo-home">
                     <img
                         src="/image/logo.jpg"
                         className="logotren"
